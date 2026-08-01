@@ -27,7 +27,7 @@ def main() -> None:
         })
 
     results_list = []
-    """
+    
     # --- 1. Run Gemini Evaluation ---
     print("\n🧪 Running evaluation with GeminiBillExtractor...")
     try:
@@ -38,7 +38,7 @@ def main() -> None:
         results_list.append(gemini_results)
     except Exception as e:
         print(f"⚠️ Gemini evaluation failed: {e}")
-    """
+    
     # --- 2. Run Qwen 2.5 VL Evaluation ---
     print("\n🧪 Running evaluation with QwenVLExtractor...")
     try:

@@ -59,7 +59,7 @@ def generate_text_report(results: dict[str, Any]) -> str:
 
     # Ranking summary table
     lines.append("\n" + "=" * 80)
-    lines.append("MODEL RANKING SUMMARY (Highest Average Accuracy)")
+    lines.append("MODEL RANKING SUMMARY (Cost-Aware Ranking)")
     lines.append("=" * 80)
     lines.append(
         f"{'Rank':<6} {'Model':<24} {'Accuracy':<12} {'Avg Time':<12} {'Cost/100':<10}"

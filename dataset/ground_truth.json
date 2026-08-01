@@ -21,6 +21,94 @@
         "currency": "INR",
         "gst": null
       }
+    },
+    {
+      "image_name": "bill3.jpg",
+      "ground_truth": {
+        "vendor": "MOTI MAHAL",
+        "bill_no": "19876",
+        "date": "2018-12-10",
+        "amount": "1800",
+        "currency": "INR",
+        "gst": "90"
+      }
+    },
+    {
+      "image_name": "bill4.jpg",
+      "ground_truth": {
+        "vendor": "MAKKAL MEDICAL",
+        "bill_no": "121",
+        "date": "2018-06-11",
+        "amount": "1267.21",
+        "currency": "INR",
+        "gst": null
+      }
+    },
+    {
+      "image_name": "bill5.jpg",
+      "ground_truth": {
+        "vendor": "Balaji Tanjore Art Gallery",
+        "bill_no": "417",
+        "date": "2023-12-13",
+        "amount": "336000",
+        "currency": null,
+        "gst": "12%"
+      }
+    },
+    {
+      "image_name": "bill6.jpg",
+      "ground_truth": {
+        "vendor": "KESAR SELECTION",
+        "bill_no": "2601",
+        "date": "2025-10-31",
+        "amount": "175651",
+        "currency": "INR",
+        "gst": "5%"
+      }
+    },
+    {
+      "image_name": "bill7.jpg",
+      "ground_truth": {
+        "vendor": "Swati Graphics",
+        "bill_no": "603",
+        "date": "2020-12-01",
+        "amount": "991.20",
+        "currency": "INR",
+        "gst": "18%"
+      }
+    },
+    {
+      "image_name": "bill8.jpg",
+      "ground_truth": {
+        "vendor": "MUSKAN COOL TECH",
+        "bill_no": "686",
+        "date": "2023-05-17",
+        "amount": "42480",
+        "currency": "INR",
+        "gst": "18%"
+      }
+    },
+    {
+      "image_name": "bill9.jpg",
+      "ground_truth": {
+        "vendor": "BHAVANI HARDWARE & SANITARY",
+        "bill_no": "6033",
+        "date": "2023-01-11",
+        "amount": "60935.00",
+        "currency": "INR",
+        "gst": "18%"
+      }
+    },
+    {
+      "image_name": "bill10.jpg",
+      "ground_truth": {
+        "vendor": "Surendra Jewellers",
+        "bill_no": "09",
+        "date": "2023-07-20",
+        "amount": "11262",
+        "currency": "INR",
+        "gst": "3%"
+      }
     }
   ]
 }

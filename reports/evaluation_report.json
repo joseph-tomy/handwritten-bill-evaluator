@@ -1,19 +1,80 @@
 {
   "models": [
     {
-      "model": "QwenVLExtractor",
-      "sample_count": 2,
-      "average_accuracy": 0.9166666666666667,
-      "highest_accuracy": 1.0,
-      "lowest_accuracy": 0.8333333333333334,
-      "average_extraction_time": 5.678035150049254,
+      "model": "GeminiBillExtractor",
+      "sample_count": 0,
+      "average_accuracy": 0.0,
+      "highest_accuracy": 0.0,
+      "lowest_accuracy": 0.0,
+      "average_extraction_time": 0.0,
       "field_accuracy": {
-        "vendor": 1.0,
+        "vendor": 0.0,
+        "bill_no": 0.0,
+        "date": 0.0,
+        "amount": 0.0,
+        "currency": 0.0,
+        "gst": 0.0
+      },
+      "cost_per_bill": 0.00015,
+      "cost_per_100_bills": 0.015,
+      "failed_samples": [
+        {
+          "image_name": "bill1.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 59.309713944s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}"
+        },
+        {
+          "image_name": "bill10.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 58.035517634s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '58s'}]}}"
+        },
+        {
+          "image_name": "bill2.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 56.161610819s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}"
+        },
+        {
+          "image_name": "bill3.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 55.159605795s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '55s'}]}}"
+        },
+        {
+          "image_name": "bill4.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 54.388018054s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '54s'}]}}"
+        },
+        {
+          "image_name": "bill5.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 53.81668101s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '53s'}]}}"
+        },
+        {
+          "image_name": "bill6.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 53.144320086s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '53s'}]}}"
+        },
+        {
+          "image_name": "bill7.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 52.144216534s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '52s'}]}}"
+        },
+        {
+          "image_name": "bill8.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 51.707665804s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '51s'}]}}"
+        },
+        {
+          "image_name": "bill9.jpg",
+          "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 51.17118119s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '51s'}]}}"
+        }
+      ],
+      "samples": []
+    },
+    {
+      "model": "QwenVLExtractor",
+      "sample_count": 10,
+      "average_accuracy": 0.7119047619047618,
+      "highest_accuracy": 1.0,
+      "lowest_accuracy": 0.3333333333333333,
+      "average_extraction_time": 4.279390769964084,
+      "field_accuracy": {
+        "vendor": 0.9,
         "bill_no": 1.0,
-        "date": 0.5,
-        "amount": 1.0,
-        "currency": 1.0,
-        "gst": 1.0
+        "date": 0.8,
+        "amount": 0.8714285714285716,
+        "currency": 0.5,
+        "gst": 0.2
       },
       "cost_per_bill": 0.0002,
       "cost_per_100_bills": 0.02,
@@ -22,7 +83,7 @@
         {
           "image_name": "bill1.jpg",
           "model": "QwenVLExtractor",
-          "overall_accuracy": 0.8333333333333334,
+          "overall_accuracy": 0.5,
           "field_scores": [
             {
               "field": "vendor",
@@ -55,16 +116,65 @@
             {
               "field": "currency",
               "ground_truth": "INR",
-              "prediction": "INR",
-              "score": 1.0,
-              "match_type": "exact"
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
             },
             {
               "field": "gst",
               "ground_truth": "28%",
-              "prediction": "28%",
+              "prediction": "33 AQEPK 6191J1 Z0",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill10.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.6666666666666666,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "Surendra Jewellers",
+              "prediction": "Surendra Jewellers",
               "score": 1.0,
               "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "09",
+              "prediction": "09",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-07-20",
+              "prediction": "20/7/23",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "11262",
+              "prediction": "11262",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "3%",
+              "prediction": "null",
+              "score": 0.0,
+              "match_type": "missing"
             }
           ]
         },
@@ -116,32 +226,370 @@
               "match_type": "exact"
             }
           ]
+        },
+        {
+          "image_name": "bill3.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.6428571428571429,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MOTI MAHAL",
+              "prediction": "Moti Mahal Restaurant",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "19876",
+              "prediction": "19876",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2018-12-10",
+              "prediction": "10-12-18",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "1800",
+              "prediction": "180",
+              "score": 0.8571428571428571,
+              "match_type": "fuzzy"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "INR",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "90",
+              "prediction": "45",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill4.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.9761904761904762,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MAKKAL MEDICAL",
+              "prediction": "MAKKAL MEDICAL",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "121",
+              "prediction": "121",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2018-06-11",
+              "prediction": "11.6.2018",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "1267.21",
+              "prediction": "1267.81",
+              "score": 0.8571428571428571,
+              "match_type": "fuzzy"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "Rs.",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "gst",
+              "ground_truth": null,
+              "prediction": null,
+              "score": 1.0,
+              "match_type": "exact"
+            }
+          ]
+        },
+        {
+          "image_name": "bill5.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.6666666666666666,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "Balaji Tanjore Art Gallery",
+              "prediction": "Balaji Tanjore Art Gallery",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "417",
+              "prediction": "417",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-12-13",
+              "prediction": "13/12/2023",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "336000",
+              "prediction": "336000",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": null,
+              "prediction": "Rupees",
+              "score": 0.0,
+              "match_type": "extra"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "12%",
+              "prediction": "18000",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill6.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.8333333333333334,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "KESAR SELECTION",
+              "prediction": "KESAR SELECTION",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "2601",
+              "prediction": "2601",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2025-10-31",
+              "prediction": "31/10/25",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "175651",
+              "prediction": "175651",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "INR",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "5%",
+              "prediction": "4182",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill7.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.6666666666666666,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "Swati Graphics",
+              "prediction": "Swati Graphics",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "603",
+              "prediction": "603",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2020-12-01",
+              "prediction": "1/12/20",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "991.20",
+              "prediction": "991-20",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "18%",
+              "prediction": "7560",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill8.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.3333333333333333,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MUSKAN COOL TECH",
+              "prediction": "MUSKAN COOL TECH",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "686",
+              "prediction": "686",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-05-17",
+              "prediction": "14-May-2023",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "42480",
+              "prediction": "4740",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "18%",
+              "prediction": "cgst:224.40, sgst:224.40",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill9.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.8333333333333334,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "BHAVANI HARDWARE & SANITARY",
+              "prediction": "BHAVANI HARDWARE & SANITARY",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "6033",
+              "prediction": "6033",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-01-11",
+              "prediction": "11/01/2023",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "60935.00",
+              "prediction": "60935.00",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "Rs.",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "18%",
+              "prediction": "36AAEC15816K12C",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
         }
       ]
     },
     {
       "model": "LlamaVisionExtractor",
-      "sample_count": 1,
-      "average_accuracy": 0.5,
-      "highest_accuracy": 0.5,
-      "lowest_accuracy": 0.5,
-      "average_extraction_time": 1.893199099926278,
+      "sample_count": 10,
+      "average_accuracy": 0.6984848484848485,
+      "highest_accuracy": 1.0,
+      "lowest_accuracy": 0.3333333333333333,
+      "average_extraction_time": 4.403145749960094,
       "field_accuracy": {
-        "vendor": 1.0,
-        "bill_no": 1.0,
-        "date": 0.0,
-        "amount": 0.0,
-        "currency": 1.0,
-        "gst": 0.0
+        "vendor": 0.990909090909091,
+        "bill_no": 0.9,
+        "date": 0.6,
+        "amount": 0.7,
+        "currency": 0.8,
+        "gst": 0.2
       },
       "cost_per_bill": 0.0002,
       "cost_per_100_bills": 0.02,
-      "failed_samples": [
-        {
-          "image_name": "bill2.jpg",
-          "error": "Llama Vision extraction failed across all endpoints: 1 validation error for BillExtraction\namount\n  Input should be a valid string [type=string_type, input_value=2059.48, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type"
-        }
-      ],
+      "failed_samples": [],
       "samples": [
         {
           "image_name": "bill1.jpg",
@@ -151,9 +599,9 @@
             {
               "field": "vendor",
               "ground_truth": "MURUGESH TRADERS",
-              "prediction": "MURUGESH TRADERS",
+              "prediction": "Murugesh Traders",
               "score": 1.0,
-              "match_type": "exact"
+              "match_type": "normalized"
             },
             {
               "field": "bill_no",
@@ -172,7 +620,7 @@
             {
               "field": "amount",
               "ground_truth": "49295.36",
-              "prediction": "38512.0",
+              "prediction": "38512.00",
               "score": 0.0,
               "match_type": "none"
             },
@@ -186,9 +634,450 @@
             {
               "field": "gst",
               "ground_truth": "28%",
-              "prediction": "null",
+              "prediction": "37BRNPM0260R1Z4",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill10.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.8333333333333334,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "Surendra Jewellers",
+              "prediction": "Surendra Jewellers",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "09",
+              "prediction": "09",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-07-20",
+              "prediction": "20/7/2023",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "11262",
+              "prediction": "11262",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "INR",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "3%",
+              "prediction": "09GZHPS8892C1ZJ",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill2.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 1.0,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "OM SHIV MEDICOS",
+              "prediction": "OM SHIV MEDICOS",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "3802",
+              "prediction": "3802",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2020-11-2",
+              "prediction": "2/11/20",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "2059.48",
+              "prediction": "2059.48",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "INR",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "gst",
+              "ground_truth": null,
+              "prediction": null,
+              "score": 1.0,
+              "match_type": "exact"
+            }
+          ]
+        },
+        {
+          "image_name": "bill3.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.48484848484848486,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MOTI MAHAL",
+              "prediction": "Imoti Imahal",
+              "score": 0.9090909090909091,
+              "match_type": "fuzzy"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "19876",
+              "prediction": "19876",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2018-12-10",
+              "prediction": null,
               "score": 0.0,
               "match_type": "missing"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "1800",
+              "prediction": "1410",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "INR",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "90",
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
+            }
+          ]
+        },
+        {
+          "image_name": "bill4.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 1.0,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MAKKAL MEDICAL",
+              "prediction": "MAKKAL MEDICAL",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "121",
+              "prediction": "121",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2018-06-11",
+              "prediction": "11.6.2018",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "1267.21",
+              "prediction": "1267.21",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "Rs.",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "gst",
+              "ground_truth": null,
+              "prediction": null,
+              "score": 1.0,
+              "match_type": "exact"
+            }
+          ]
+        },
+        {
+          "image_name": "bill5.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.6666666666666666,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "Balaji Tanjore Art Gallery",
+              "prediction": "Balaji Tanjore Art Gallery",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "417",
+              "prediction": "417",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-12-13",
+              "prediction": "13/12/2023",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "336000",
+              "prediction": "336000",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": null,
+              "prediction": "INR",
+              "score": 0.0,
+              "match_type": "extra"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "12%",
+              "prediction": "18%",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill6.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.8333333333333334,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "KESAR SELECTION",
+              "prediction": "KESAR SELECTION",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "2601",
+              "prediction": "2601",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2025-10-31",
+              "prediction": "31/10/25",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "175651",
+              "prediction": "175651",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "\u20b9",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "5%",
+              "prediction": "07LZ SPS7809B1ZM",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill7.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.5,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "Swati Graphics",
+              "prediction": "Swati Graphics",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "603",
+              "prediction": "603",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2020-12-01",
+              "prediction": "1/2/20",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "991.20",
+              "prediction": "991.20",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "18%",
+              "prediction": "08APSF14532R1Z1",
+              "score": 0.0,
+              "match_type": "none"
+            }
+          ]
+        },
+        {
+          "image_name": "bill8.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.3333333333333333,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MUSKAN COOL TECH",
+              "prediction": "MUSKAN COOL TECH",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "686",
+              "prediction": "680",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-05-17",
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "42480",
+              "prediction": "4400",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "INR",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "18%",
+              "prediction": null,
+              "score": 0.0,
+              "match_type": "missing"
+            }
+          ]
+        },
+        {
+          "image_name": "bill9.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.8333333333333334,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "BHAVANI HARDWARE & SANITARY",
+              "prediction": "BHAVANI HARDWARE & SANITARY",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "6033",
+              "prediction": "6033",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-01-11",
+              "prediction": "11/01/2023",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "60935.00",
+              "prediction": "60935.0",
+              "score": 1.0,
+              "match_type": "numeric"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "Rs.",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "18%",
+              "prediction": "36AHJPC3408J2ZH",
+              "score": 0.0,
+              "match_type": "none"
             }
           ]
         }

@@ -45,11 +45,18 @@ def calculate_field_accuracy(samples: list[dict[str, Any]]) -> dict[str, float]:
     field_counts: dict[str, int] = {field: 0 for field in fields}
 
     for sample in samples:
-        for field_score in sample.get("field_scores", []):
-            field_name = field_score.get("field")
-            score = field_score.get("score", 0.0)
+        # Handle both raw dicts and SampleScore object dict conversions
+        scores_list = sample.get("field_scores", [])
+        for field_score in scores_list:
+            if isinstance(field_score, dict):
+                field_name = field_score.get("field")
+                score = field_score.get("score", 0.0)
+            else:
+                field_name = getattr(field_score, "field", None)
+                score = getattr(field_score, "score", 0.0)
+
             if field_name in field_totals:
-                field_totals[field_name] += score
+                field_totals[field_name] += float(score)
                 field_counts[field_name] += 1
 
     return {
@@ -59,9 +66,20 @@ def calculate_field_accuracy(samples: list[dict[str, Any]]) -> dict[str, float]:
 
 
 def calculate_model_rank(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Rank model evaluation results by highest average accuracy descending."""
-    return sorted(
-        results,
-        key=lambda res: res.get("average_accuracy", 0.0),
-        reverse=True,
-    )
+    """Rank models by balancing accuracy with estimated cost."""
+    # Weight (per-second) applied to average extraction time when computing rank.
+    # Smaller values make time less influential; default chosen conservatively.
+    time_weight = 0.02
+
+    def ranking_key(res: dict[str, Any]) -> tuple[float, float, float]:
+        accuracy = float(res.get("average_accuracy", 0.0))
+        cost_per_100 = float(res.get("cost_per_100_bills", 0.0))
+        avg_time = float(res.get("average_extraction_time", 0.0))
+
+        # Combine accuracy, cost, and time into a single adjusted score.
+        # Higher is better. Cost and time are treated as penalties.
+        adjusted_score = accuracy - (cost_per_100 * 0.5) - (avg_time * time_weight)
+        # Tie-breakers: prefer higher accuracy, then lower cost.
+        return (adjusted_score, accuracy, -cost_per_100)
+
+    return sorted(results, key=ranking_key, reverse=True)

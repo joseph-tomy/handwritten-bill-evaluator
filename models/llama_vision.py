@@ -9,6 +9,9 @@ import mimetypes
 import os
 from pathlib import Path
 from typing import Any
+import io
+
+from PIL import Image, UnidentifiedImageError, ImageFile
 
 from openai import OpenAI
 from pydantic import BaseModel, Field
@@ -63,7 +66,16 @@ class LlamaVisionExtractor:
             raise FileNotFoundError(f"Image file not found: {image_file}")
 
         mime_type = mimetypes.guess_type(image_file.name)[0] or "image/jpeg"
-        image_bytes = image_file.read_bytes()
+        ImageFile.LOAD_TRUNCATED_IMAGES = True
+        try:
+            with Image.open(image_file) as img:
+                rgb = img.convert("RGB")
+                buf = io.BytesIO()
+                rgb.save(buf, format="JPEG")
+                image_bytes = buf.getvalue()
+        except Exception:
+            image_bytes = image_file.read_bytes()
+
         base64_image = base64.b64encode(image_bytes).decode("utf-8")
         data_url = f"data:{mime_type};base64,{base64_image}"
 
@@ -99,8 +111,41 @@ class LlamaVisionExtractor:
                     ],
                 )
                 content = response.choices[0].message.content or "{}"
-                raw_json = json.loads(content)
-                return BillExtraction.model_validate(raw_json).model_dump()
+                try:
+                    raw_json = json.loads(content)
+                except Exception:
+                    decoder = json.JSONDecoder()
+                    try:
+                        raw_json, _ = decoder.raw_decode(content)
+                    except Exception:
+                        # Heuristic fallback: extract simple "key": "value" pairs.
+                        import re
+
+                        pairs = re.findall(r'"([a-zA-Z0-9_]+)"\s*:\s*"([^\"]*)"', content)
+                        if pairs:
+                            raw_json = {k: v for k, v in pairs}
+                        else:
+                            raise RuntimeError(f"Failed to parse JSON response; content={content!r}")
+
+                # Normalize types to strings for Pydantic validation
+                def _normalize_value(v: Any) -> Any:
+                    if v is None:
+                        return None
+                    if isinstance(v, dict):
+                        parts = [f"{k}:{v[k]}" for k in sorted(v.keys()) if v[k] is not None]
+                        return ", ".join(parts) if parts else None
+                    if isinstance(v, (int, float)):
+                        return str(v)
+                    if isinstance(v, list):
+                        return ", ".join(str(x) for x in v)
+                    return str(v)
+
+                normalized = {
+                    key: _normalize_value(raw_json.get(key))
+                    for key in ["vendor", "bill_no", "date", "amount", "currency", "gst"]
+                }
+
+                return BillExtraction.model_validate(normalized).model_dump()
 
             except Exception as e:
                 last_error = e
