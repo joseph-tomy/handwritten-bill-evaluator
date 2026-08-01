@@ -1,0 +1,50 @@
+================================================================================
+BILL EXTRACTION EVALUATION REPORT
+================================================================================
+
+📊 Model: QwenVLExtractor
+   Samples: 2
+   Average Accuracy: 91.67%
+   Highest Accuracy: 100.00%
+   Lowest Accuracy: 83.33%
+   Average Extraction Time: 5.68s
+   Field Accuracy:
+      • Vendor Accuracy:   100.00%
+      • Bill Number Accuracy: 100.00%
+      • Date Accuracy:      50.00%
+      • Amount Accuracy:    100.00%
+      • Currency Accuracy:  100.00%
+      • GST Accuracy:       100.00%
+   Estimated Cost/Bill: $0.00020
+   Estimated Cost/100 Bills: $0.020
+   Failed Samples: None
+--------------------------------------------------------------------------------
+📊 Model: LlamaVisionExtractor
+   Samples: 1
+   Average Accuracy: 50.00%
+   Highest Accuracy: 50.00%
+   Lowest Accuracy: 50.00%
+   Average Extraction Time: 1.89s
+   Field Accuracy:
+      • Vendor Accuracy:   100.00%
+      • Bill Number Accuracy: 100.00%
+      • Date Accuracy:      0.00%
+      • Amount Accuracy:    0.00%
+      • Currency Accuracy:  100.00%
+      • GST Accuracy:       0.00%
+   Estimated Cost/Bill: $0.00020
+   Estimated Cost/100 Bills: $0.020
+   Failed Samples (1):
+      ❌ bill2.jpg: Llama Vision extraction failed across all endpoints: 1 validation error for BillExtraction
+amount
+  Input should be a valid string [type=string_type, input_value=2059.48, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+--------------------------------------------------------------------------------
+
+================================================================================
+MODEL RANKING SUMMARY (Highest Average Accuracy)
+================================================================================
+Rank   Model                    Accuracy     Avg Time     Cost/100  
+----------------------------------------------------------------
+1      QwenVLExtractor              91.67%       5.68s $   0.020
+2      LlamaVisionExtractor         50.00%       1.89s $   0.020

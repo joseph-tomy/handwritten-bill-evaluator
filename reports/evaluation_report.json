@@ -1,0 +1,198 @@
+{
+  "models": [
+    {
+      "model": "QwenVLExtractor",
+      "sample_count": 2,
+      "average_accuracy": 0.9166666666666667,
+      "highest_accuracy": 1.0,
+      "lowest_accuracy": 0.8333333333333334,
+      "average_extraction_time": 5.678035150049254,
+      "field_accuracy": {
+        "vendor": 1.0,
+        "bill_no": 1.0,
+        "date": 0.5,
+        "amount": 1.0,
+        "currency": 1.0,
+        "gst": 1.0
+      },
+      "cost_per_bill": 0.0002,
+      "cost_per_100_bills": 0.02,
+      "failed_samples": [],
+      "samples": [
+        {
+          "image_name": "bill1.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 0.8333333333333334,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MURUGESH TRADERS",
+              "prediction": "MURUGESH TRADERS",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "835",
+              "prediction": "835",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-03-15",
+              "prediction": "15/3/22",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "49295.36",
+              "prediction": "49295.36",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "INR",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "28%",
+              "prediction": "28%",
+              "score": 1.0,
+              "match_type": "exact"
+            }
+          ]
+        },
+        {
+          "image_name": "bill2.jpg",
+          "model": "QwenVLExtractor",
+          "overall_accuracy": 1.0,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "OM SHIV MEDICOS",
+              "prediction": "OM SHIV MEDICOS",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "3802",
+              "prediction": "3802",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2020-11-2",
+              "prediction": "2/11/20",
+              "score": 1.0,
+              "match_type": "date"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "2059.48",
+              "prediction": "2059.48",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "Rs.",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "gst",
+              "ground_truth": null,
+              "prediction": null,
+              "score": 1.0,
+              "match_type": "exact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "LlamaVisionExtractor",
+      "sample_count": 1,
+      "average_accuracy": 0.5,
+      "highest_accuracy": 0.5,
+      "lowest_accuracy": 0.5,
+      "average_extraction_time": 1.893199099926278,
+      "field_accuracy": {
+        "vendor": 1.0,
+        "bill_no": 1.0,
+        "date": 0.0,
+        "amount": 0.0,
+        "currency": 1.0,
+        "gst": 0.0
+      },
+      "cost_per_bill": 0.0002,
+      "cost_per_100_bills": 0.02,
+      "failed_samples": [
+        {
+          "image_name": "bill2.jpg",
+          "error": "Llama Vision extraction failed across all endpoints: 1 validation error for BillExtraction\namount\n  Input should be a valid string [type=string_type, input_value=2059.48, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type"
+        }
+      ],
+      "samples": [
+        {
+          "image_name": "bill1.jpg",
+          "model": "LlamaVisionExtractor",
+          "overall_accuracy": 0.5,
+          "field_scores": [
+            {
+              "field": "vendor",
+              "ground_truth": "MURUGESH TRADERS",
+              "prediction": "MURUGESH TRADERS",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "bill_no",
+              "ground_truth": "835",
+              "prediction": "835",
+              "score": 1.0,
+              "match_type": "exact"
+            },
+            {
+              "field": "date",
+              "ground_truth": "2023-03-15",
+              "prediction": "15.3.22",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "amount",
+              "ground_truth": "49295.36",
+              "prediction": "38512.0",
+              "score": 0.0,
+              "match_type": "none"
+            },
+            {
+              "field": "currency",
+              "ground_truth": "INR",
+              "prediction": "Rs.",
+              "score": 1.0,
+              "match_type": "normalized"
+            },
+            {
+              "field": "gst",
+              "ground_truth": "28%",
+              "prediction": "null",
+              "score": 0.0,
+              "match_type": "missing"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

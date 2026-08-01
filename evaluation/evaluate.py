@@ -1,97 +1,78 @@
-"""Run evaluation across dataset and models."""
+"""Evaluation framework runner for bill extraction models."""
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
+import time
 from typing import Any
 
-from dataset.loader import load_dataset
-from evaluation.scorer import BillEvaluator, SampleScore
+from evaluation.cost import (
+    calculate_cost_per_100_bills,
+    calculate_cost_per_bill,
+)
+from evaluation.metrics import (
+    calculate_average_time,
+    calculate_field_accuracy,
+    calculate_statistics,
+)
+from evaluation.scorer import BillEvaluator
 
 
 def evaluate_model(
     extractor_name: str, extractor: Any, dataset_samples: list[dict[str, Any]]
 ) -> dict[str, Any]:
     """
-    Evaluate a single model on all dataset samples.
-
-    Returns a report with per-sample and aggregate accuracy.
+    Evaluate a single model on all dataset samples with timing and field-level scoring.
     """
     evaluator = BillEvaluator(fuzzy_threshold=0.85)
     sample_scores = []
+    extraction_times: list[float] = []
+    failed_samples: list[dict[str, str]] = []
 
     for sample in dataset_samples:
         image_name = sample["image_name"]
         ground_truth = sample["ground_truth"]
         image_path = sample["image_path"]
 
+        start_time = time.perf_counter()
         try:
             prediction = extractor.extract_bill(image_path)
+            elapsed_time = time.perf_counter() - start_time
+            extraction_times.append(elapsed_time)
+
+            score = evaluator.score_sample(
+                image_name, extractor_name, ground_truth, prediction
+            )
+            sample_scores.append(score)
+
         except Exception as e:
+            elapsed_time = time.perf_counter() - start_time
             print(f"  ❌ {extractor_name} failed on {image_name}: {e}")
-            continue
+            failed_samples.append({
+                "image_name": image_name,
+                "error": str(e),
+            })
 
-        score = evaluator.score_sample(image_name, extractor_name, ground_truth, prediction)
-        sample_scores.append(score)
+    # Prepare sample score dicts for statistics and field calculations
+    sample_dicts = [s.to_dict() for s in sample_scores]
+    accuracy_scores = [s.overall_accuracy for s in sample_scores]
 
-    # Aggregate results
-    if not sample_scores:
-        return {
-            "model": extractor_name,
-            "sample_count": 0,
-            "average_accuracy": 0.0,
-            "samples": [],
-        }
+    stats = calculate_statistics(accuracy_scores)
+    avg_time = calculate_average_time(extraction_times)
+    field_acc = calculate_field_accuracy(sample_dicts)
 
-    avg_accuracy = sum(s.overall_accuracy for s in sample_scores) / len(sample_scores)
+    cost_per_bill = calculate_cost_per_bill(extractor_name)
+    cost_per_100 = calculate_cost_per_100_bills(extractor_name)
 
     return {
         "model": extractor_name,
         "sample_count": len(sample_scores),
-        "average_accuracy": avg_accuracy,
-        "samples": [s.to_dict() for s in sample_scores],
+        "average_accuracy": stats["average_accuracy"],
+        "highest_accuracy": stats["highest_accuracy"],
+        "lowest_accuracy": stats["lowest_accuracy"],
+        "average_extraction_time": avg_time,
+        "field_accuracy": field_acc,
+        "cost_per_bill": cost_per_bill,
+        "cost_per_100_bills": cost_per_100,
+        "failed_samples": failed_samples,
+        "samples": sample_dicts,
     }
-
-
-def generate_report(results: dict[str, Any]) -> str:
-    """Generate a readable text report from evaluation results."""
-    lines = [
-        "=" * 80,
-        "BILL EXTRACTION EVALUATION REPORT",
-        "=" * 80,
-        "",
-    ]
-
-    models_summary = []
-    for model_result in results["models"]:
-        model_name = model_result["model"]
-        avg_acc = model_result["average_accuracy"]
-        sample_count = model_result["sample_count"]
-        models_summary.append((model_name, avg_acc, sample_count))
-
-        lines.append(f"\n📊 Model: {model_name}")
-        lines.append(f"   Samples: {sample_count}")
-        lines.append(f"   Average Accuracy: {avg_acc:.2%}")
-        lines.append("")
-
-        for sample in model_result["samples"]:
-            image_name = sample["image_name"]
-            overall = sample["overall_accuracy"]
-            lines.append(f"   - {image_name}: {overall:.2%}")
-            for field_score in sample["field_scores"]:
-                field = field_score["field"]
-                score = field_score["score"]
-                match_type = field_score["match_type"]
-                lines.append(f"      • {field}: {score:.2%} ({match_type})")
-
-    # Summary table
-    lines.append("\n" + "=" * 80)
-    lines.append("SUMMARY")
-    lines.append("=" * 80)
-    lines.append(f"{'Model':<20} {'Accuracy':<15} {'Samples':<10}")
-    lines.append("-" * 45)
-    for model_name, avg_acc, sample_count in models_summary:
-        lines.append(f"{model_name:<20} {avg_acc:>13.2%} {sample_count:>9}")
-
-    return "\n".join(lines)
