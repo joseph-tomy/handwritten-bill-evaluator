@@ -1,3 +1,26 @@
 {
-  "samples": []
+  "samples": [
+    {
+      "image_name": "bill1.jpg",
+      "ground_truth": {
+        "vendor": "MURUGESH TRADERS",
+        "bill_no": "835",
+        "date": "2023-03-15",
+        "amount": "49295.36",
+        "currency": "INR",
+        "gst": "28%"
+      }
+    },
+    {
+      "image_name": "bill2.jpg",
+      "ground_truth": {
+        "vendor": "OM SHIV MEDICOS",
+        "bill_no": "3802",
+        "date": "2020-11-2",
+        "amount": "2059.48",
+        "currency": "INR",
+        "gst": null
+      }
+    }
+  ]
 }

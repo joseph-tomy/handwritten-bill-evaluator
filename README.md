@@ -8,7 +8,7 @@ Python 3.11+ project scaffold for evaluating multimodal LLMs on handwritten Indi
 - `dataset/images/` stores original bill images.
 - `dataset/redacted/` stores privacy-safe bill copies.
 - `dataset/ground_truth.json` stores the reference annotations for evaluation.
-- `models/` is where model wrappers for Gemini, OpenAI GPT, Claude, and future providers belong.
+- `models/` is where model wrappers for Gemini, Claude, and future providers belong.
 - `evaluation/` is where accuracy metrics, comparison logic, and report generation live.
 - `zoho/` is where Zoho Books integration code belongs.
 - `outputs/` stores generated reports, predictions, and exported artifacts.

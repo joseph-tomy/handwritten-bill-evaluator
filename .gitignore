@@ -1,0 +1,19 @@
+# Environment
+.env
+.env.*
+
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Temporary test scripts
+test_api.py
+list_models.py
+
+# VS Code
+.vscode/
