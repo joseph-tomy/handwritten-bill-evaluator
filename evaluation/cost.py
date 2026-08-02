@@ -5,8 +5,6 @@ from __future__ import annotations
 # Estimated cost per bill (USD) per model type
 MODEL_COST_PER_BILL: dict[str, float] = {
     "GeminiBillExtractor": 0.00015,
-    "ClaudeBillExtractor": 0.0025,
-    "OpenAIBillExtractor": 0.0015,
     "QwenVLExtractor": 0.0002,
     "LlamaVisionExtractor": 0.0002,
 }

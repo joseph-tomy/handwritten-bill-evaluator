@@ -1,0 +1,22 @@
+{
+    "generated_at": "2026-08-02T10:47:54.201836",
+    "winning_model": "GeminiBillExtractor",
+    "winning_accuracy": 0.9,
+    "evaluated_models": [
+        {
+            "model": "GeminiBillExtractor",
+            "accuracy": 0.9,
+            "samples": 5
+        },
+        {
+            "model": "QwenVLExtractor",
+            "accuracy": 0.7119047619047618,
+            "samples": 10
+        },
+        {
+            "model": "LlamaVisionExtractor",
+            "accuracy": 0.6825396825396826,
+            "samples": 10
+        }
+    ]
+}
